@@ -1,3 +1,25 @@
+/* :root {
+   
+} */
+
 .searchBtn__wrapper {
    align-items: center;
+   width: 100%;
+}
+
+.search_input {
+    margin: 10px;
+    border: 1px solid rgb(68, 68, 240);
+    font-size: medium;
+}
+
+.button {
+    margin: 5px;
+}
+
+#footerBtn {
+    margin: 10px;
+    align-items: center;
+    width: 100%;
+    border: 1px solid lightgray;
 }
