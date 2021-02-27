@@ -38,11 +38,11 @@ background-color: rgb(189, 238, 219);
     border: 1px solid lightgray;
 }
 
-.card-wrapper-block {
+/* .card-wrapper-block {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
+} */
 
 .card {
     width: 300px;

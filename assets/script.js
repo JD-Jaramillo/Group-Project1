@@ -1,3 +1,4 @@
+var cardWrapperBlock = document.querySelector('.card-wrapper-block');
 var drinkChoice = 'gin';
 
 // function demo() {
@@ -20,29 +21,6 @@ function edamamUrl(recipeInput) {
         })
         .then(function (data) {
             console.log("recipe API", edamamUrl);
-            var recipeName1 = data.hits[0].recipe.label;
-            var recipeName1 = data.hits[1].recipe.label;
-            var recipeName1 = data.hits[2].recipe.label;
-            var recipeName1 = data.hits[3].recipe.label;
-            var recipeName1 = data.hits[4].recipe.label;
-            var recipeName1 = data.hits[5].recipe.label;
-            var recipeImage1 = data.hits[0].recipe.image;
-            var recipeImage2 = data.hits[1].recipe.image;
-            var recipeImage3 = data.hits[2].recipe.image;
-            var recipeImage4 = data.hits[3].recipe.image;
-            var recipeImage5 = data.hits[4].recipe.image;
-            var recipeImage6 = data.hits[5].recipe.image;
-            var ingredientLines1 = data.hits[0].recipe.ingredientLines;
-            var ingredientLines2 = data.hits[1].recipe.ingredientLines;
-            var ingredientLines3 = data.hits[2].recipe.ingredientLines;
-            var ingredientLines4 = data.hits[3].recipe.ingredientLines;
-            var ingredientLines5 = data.hits[4].recipe.ingredientLines;
-            var ingredientLines6 = data.hits[5].recipe.ingredientLines;
-
-            // var recipe1El = document.getElementById('recipe1_name');
-            // recipe1El.innerHTML(recipeName1);
-
-            cocktailDBUrl();
 
             var apiArray = data.hits;
             console.log('apiArray', apiArray);
@@ -54,36 +32,36 @@ function edamamUrl(recipeInput) {
                 var recipeIngr = data.recipe.ingredientLines;
                 var recipeUrl = data.recipe.url;
 
-                var cardWrapperBlock = document.querySelector('.card-wrapper-block');
                 var recipeCardWrapper = document.createElement("a");
-                recipeCardWrapper.classList.add('card__link-tag')
+                recipeCardWrapper.classList.add('card__link-tag');
+                recipeCardWrapper.target = "_blank";
                 recipeCardWrapper.href = recipeUrl;
                 recipeCardWrapper.innerHTML =
                     `<div class="card"> <div class="card-image">
                 <figure class="image is-4by3">
-                    <img src="${recipeImg}" alt="Placeholder image">
+                <img src="${recipeImg}" alt="Placeholder image">
                 </figure>
-            </div>
-            <div class="card-content">
-                <div class="media">
-                    <div class="media-content">
-                        <p class="title is-4">${recipeName}</p>
-                    </div>
                 </div>
-
+                <div class="card-content">
+                <div class="media">
+                <div class="media-content">
+                <p class="title is-4">${recipeName}</p>
+                </div>
+                </div>
+                
                 <div class="content">
                 ${recipeIngr}
                 </div>
-            </div></div>`
+                </div></div>`
                 cardWrapperBlock.appendChild(recipeCardWrapper);
             });
 
+            cocktailDBUrl();
 
         })
 };
 
 function clearCards() {
-    var cardWrapperBlock = document.querySelector('.card-wrapper-block');
     cardWrapperBlock.innerHTML = ' ';
 }
 
@@ -146,17 +124,6 @@ $("#recipeBtn").on("click", function () {
     if (recipeInput !== "") {
         console.log('recipe button working');
         edamamUrl(recipeInput);
-        // citiesListUl.innerHTML = ' ';
-        // // pushing the cities onto the cities list array
-        // citiesList.push(cityInput);
-        // adding the cities array to local storage
-
-        // for every city in the array create an li and append to the ul
-        // citiesList.forEach((city) => {
-        //     var li = document.createElement('li');
-        //     li.classList.add('cityList__item');
-        //     li.innerHTML = city;
-        //     citiesListUl.appendChild(li);
     }
 })
 
