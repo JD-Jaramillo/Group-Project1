@@ -37,6 +37,28 @@ background-color: rgb(189, 238, 219);
     width: 100%;
     border: 1px solid lightgray;
 }
+
+.card-wrapper-block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    width: 300px;
+    margin: 15px;
+    min-height: 550px;
+}
+
+.card__link-tag {
+    margin: 15px;
+}
+
+.card__link-tag:hover {
+    box-shadow: 3px 3px 5px 6px #d8d8d8;
+    background-color: #d8d8d8;
+    border-radius:50px 50px 50px 50px; 
+}
  /* .flip-card {
     background-color: transparent;
     perspective: 1000px;
