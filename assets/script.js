@@ -1,7 +1,15 @@
-// var recipeInput = 'chicken';
+var cardWrapperBlock = document.querySelector('.card-wrapper-block');
 var drinkChoice = 'gin';
 
+// function demo() {
+//     var cards = document.querySelectorAll('.card');
+//     console.log('cards', cards);
 
+//     for (var i=0; i < cards.length; i++) {
+//         cards[i].
+//     }
+// }
+// demo();
 
 function edamamUrl(recipeInput) {
     console.log(" recipe function working");
@@ -13,46 +21,49 @@ function edamamUrl(recipeInput) {
         })
         .then(function (data) {
             console.log("recipe API", edamamUrl);
-            var recipeName1 = data.hits[0].recipe.label;
-            console.log('name', recipeName1);
-            var recipeName1 = data.hits[1].recipe.label;
-            console.log('name', recipeName1);
-            var recipeName1 = data.hits[2].recipe.label;
-            console.log('name', recipeName1);
-            var recipeName1 = data.hits[3].recipe.label;
-            console.log('name', recipeName1);
-            var recipeName1 = data.hits[4].recipe.label;
-            console.log('name', recipeName1);
-            var recipeName1 = data.hits[5].recipe.label;
-            console.log('name', recipeName1);
-            var recipeImage1 = data.hits[0].recipe.image;
-            console.log('image', recipeImage1);
-            var recipeImage2 = data.hits[1].recipe.image;
-            console.log('image', recipeImage2);
-            var recipeImage3 = data.hits[2].recipe.image;
-            console.log('image', recipeImage3);
-            var recipeImage4 = data.hits[3].recipe.image;
-            console.log('image', recipeImage4);
-            var recipeImage5 = data.hits[4].recipe.image;
-            console.log('image', recipeImage5);
-            var recipeImage6 = data.hits[5].recipe.image;
-            console.log('image', recipeImage6);
-            var ingredientLines1 = data.hits[0].recipe.ingredientLines;
-            console.log('ingredients', ingredientLines1);
-            var ingredientLines2 = data.hits[1].recipe.ingredientLines;
-            console.log('ingredients', ingredientLines2);
-            var ingredientLines3 = data.hits[2].recipe.ingredientLines;
-            console.log('ingredients', ingredientLines3);
-            var ingredientLines4 = data.hits[3].recipe.ingredientLines;
-            console.log('ingredients', ingredientLines4);
-            var ingredientLines5 = data.hits[4].recipe.ingredientLines;
-            console.log('ingredients', ingredientLines5);
-            var ingredientLines6 = data.hits[5].recipe.ingredientLines;
-            console.log('ingredients', ingredientLines6);
+
+            var apiArray = data.hits;
+            console.log('apiArray', apiArray);
+
+            apiArray.forEach((data) => {
+                console.log('data', data);
+                var recipeName = data.recipe.label;
+                var recipeImg = data.recipe.image;
+                var recipeIngr = data.recipe.ingredientLines;
+                var recipeUrl = data.recipe.url;
+
+                var recipeCardWrapper = document.createElement("a");
+                recipeCardWrapper.classList.add('card__link-tag');
+                recipeCardWrapper.target = "_blank";
+                recipeCardWrapper.href = recipeUrl;
+                recipeCardWrapper.innerHTML =
+                    `<div class="card"> <div class="card-image">
+                <figure class="image is-4by3">
+                <img src="${recipeImg}" alt="Placeholder image">
+                </figure>
+                </div>
+                <div class="card-content">
+                <div class="media">
+                <div class="media-content">
+                <p class="title is-4">${recipeName}</p>
+                </div>
+                </div>
+                
+                <div class="content">
+                ${recipeIngr}
+                </div>
+                </div></div>`
+                cardWrapperBlock.appendChild(recipeCardWrapper);
+            });
 
             cocktailDBUrl();
+
         })
 };
+
+function clearCards() {
+    cardWrapperBlock.innerHTML = ' ';
+}
 
 function cocktailDBUrl() {
     console.log("cocktail function working");
@@ -105,6 +116,7 @@ function cocktailDBUrl() {
 };
 
 $("#recipeBtn").on("click", function () {
+    clearCards();
     // capture the value in citySearched and trim it to get rid of white spaces
     var recipeInput = $('#search_input').val().trim();
 
@@ -112,17 +124,6 @@ $("#recipeBtn").on("click", function () {
     if (recipeInput !== "") {
         console.log('recipe button working');
         edamamUrl(recipeInput);
-        // citiesListUl.innerHTML = ' ';
-        // // pushing the cities onto the cities list array
-        // citiesList.push(cityInput);
-        // adding the cities array to local storage
-
-        // for every city in the array create an li and append to the ul
-        // citiesList.forEach((city) => {
-        //     var li = document.createElement('li');
-        //     li.classList.add('cityList__item');
-        //     li.innerHTML = city;
-        //     citiesListUl.appendChild(li);
     }
 })
 
