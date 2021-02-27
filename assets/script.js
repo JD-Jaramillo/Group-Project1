@@ -7,7 +7,11 @@ var edamamUrl = 'https://api.edamam.com/searchq=' + searchInput + '&app_id4e225b
 fucntion edamamUrl() {
     fetch()
 }
-
+// var dropdown = document.querySelector('.dropdown');
+// dropdown.addEventListener('click', function(event) {
+//   event.stopPropagation();
+//   dropdown.classList.toggle('is-active');
+// });
 
 
 
