@@ -127,3 +127,19 @@ $("#recipeBtn").on("click", function () {
     }
 })
 
+
+function buttonFinder() {
+    var ingredientBtns = document.querySelectorAll(".button");
+    console.log('ingredientBtns', ingredientBtns);
+
+    $(ingredientBtns).on("click", function(event){
+        clearCards();
+console.log(event.target.innerText, "event");
+var foodFind = event.target.innerText;
+console.log("foodFind", foodFind);
+edamamUrl(foodFind);
+    });
+    
+}
+buttonFinder();
+
