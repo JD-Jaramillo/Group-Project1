@@ -52,6 +52,9 @@ function edamamUrl(recipeInput) {
 
 function clearCards() {
     recipeCardWrapperBlock.innerHTML = ' ';
+}
+
+function clearDrinks() {
     drinksCardWrapperBlock.innerHTML = ' ';
 }
 
@@ -114,27 +117,39 @@ function fetchDrinkIngredients(drinkId, i) {
         })
         .then(function (data) {
             console.log(data);
-            console.log('ingr1', data.drinks[0].strIngredient1);
-            console.log('ing2', data.drinks[0].strIngredient2);
-            console.log('ing3', data.drinks[0].strIngredient3);
-            console.log('ing4', data.drinks[0].strIngredient4);
 
-            var ingr1 = data.drinks[0].strIngredient1;
-            var ingr2 = data.drinks[0].strIngredient2;
-            var ingr3 = data.drinks[0].strIngredient3;
-            if (data.drinks[0].strIngredient4 !== null && data.drinks[0].strIngredient4 !== undefined) {
-                console.log('this this is not null')
-                var ingr4 = data.drinks[0].strIngredient4;
+            if (data.drinks[0].strIngredient1 !== null && data.drinks[0].strIngredient1 !== undefined) {
+                var ingr1 = data.drinks[0].strIngredient1;
             } else {
-                console.log('this thing is null');
+                var ingr1 = '';
+            }
+            if (data.drinks[0].strIngredient2 !== null && data.drinks[0].strIngredient2 !== undefined) {
+                var ingr2 = data.drinks[0].strIngredient2;
+            } else {
+                var ingr2 = '';
+            }
+            if (data.drinks[0].strIngredient3 !== null && data.drinks[0].strIngredient3 !== undefined) {
+                var ingr3 = data.drinks[0].strIngredient3;
+            } else {
+                var ingr3 = '';
             }
 
-            console.log('i', i);
+            if (data.drinks[0].strIngredient4 !== null && data.drinks[0].strIngredient4 !== undefined) {
+                var ingr4 = data.drinks[0].strIngredient4;
+            } else {
+                var ingr4 = '';
+            }
+
+            if (data.drinks[0].strIngredient5 !== null && data.drinks[0].strIngredient5 !== undefined) {
+                var ingr5 = data.drinks[0].strIngredient5;
+            } else {
+                var ingr5 = '';
+            }
 
             var drinkWrapper = document.getElementById('id-' + i);
             console.log(drinkWrapper, 'drinkWrapper');
             drinkWrapper.innerHTML =
-                `<span>${ingr1} </span><br> <span>${ingr2} </span><br> <span>${ingr3} </span><br> <span>${ingr4} </span>`
+                `<span>${ingr1} </span><br> <span>${ingr2} </span><br> <span>${ingr3} </span><br> <span>${ingr4} </span> <br> <span>${ingr5} </span>`
 
             // var drinkIngrWrappers = document.querySelectorAll('#id-${i}');
             // for (var i=0; i<6; i++) {
@@ -155,25 +170,12 @@ $("#recipeBtn").on("click", function () {
 
 $('.drink__select').change(function (e) {
     console.log('e', e);
+    clearDrinks();
     $drink = $(".drink__select option:selected").val();
     console.log('$drink', $drink);
     // console.log('$drink', typeOf($drink));
     cocktailDBUrl($drink);
 });
-// $('.selector').on("click", function (event) {
-//     clearCards();
-//     console.log('selector click working', event);
-//     function drinkFinder(choice) {
-//         console.log(choice, 'drink choice');
-//         var drinkDropdown = document.querySelectorAll(".drink__choices");
-//         console.log(drinkDropdown, 'dropdown function working');
 
-
-//         var drinkChoice = event.target.innerText;
-//         cocktailDBUrl(drinkChoice);
-//     }
-// })
-
-// drinkFinder();
 
 
