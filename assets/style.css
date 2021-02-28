@@ -21,7 +21,7 @@ background-color: rgb(189, 238, 219);
   color:darkcyan;
 }
 h2 {
-  color:white;
+  color:#000000;
 }
 .card {
   border-radius:50px 50px 50px 50px; 
@@ -32,6 +32,7 @@ h2 {
   border-radius: 50px 50px 50px 50px;
   max-height: 100%;
   max-width: 25%;
+  min-width: 200px;
 }
 
 .searchBtn__wrapper {
