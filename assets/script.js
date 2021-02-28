@@ -11,13 +11,10 @@ function edamamUrl(recipeInput) {
             return response.json();
         })
         .then(function (data) {
-            console.log("recipe API", edamamUrl);
 
             var apiArray = data.hits;
-            console.log('apiArray', apiArray);
 
             apiArray.forEach((data) => {
-                console.log('data', data);
                 var recipeName = data.recipe.label;
                 var recipeImg = data.recipe.image;
                 var recipeIngr = data.recipe.ingredientLines;
@@ -67,8 +64,6 @@ function cocktailDBUrl(drinkChoice) {
             return response.json();
         })
         .then(function (data) {
-            console.log("cocktail API", cocktailDBUrl);
-
 
             for (var i = 0; i < 6; i++) {
 
@@ -116,7 +111,6 @@ function fetchDrinkIngredients(drinkId, i) {
             return response.json();
         })
         .then(function (data) {
-            console.log(data);
 
             if (data.drinks[0].strIngredient1 !== null && data.drinks[0].strIngredient1 !== undefined) {
                 var ingr1 = data.drinks[0].strIngredient1;
@@ -147,14 +141,8 @@ function fetchDrinkIngredients(drinkId, i) {
             }
 
             var drinkWrapper = document.getElementById('id-' + i);
-            console.log(drinkWrapper, 'drinkWrapper');
             drinkWrapper.innerHTML =
                 `<span>${ingr1} </span><br> <span>${ingr2} </span><br> <span>${ingr3} </span><br> <span>${ingr4} </span> <br> <span>${ingr5} </span>`
-
-            // var drinkIngrWrappers = document.querySelectorAll('#id-${i}');
-            // for (var i=0; i<6; i++) {
-            //     drinkIngrWrappers[i].innerHTML = 
-            // }
         })
 }
 
@@ -163,17 +151,13 @@ $("#recipeBtn").on("click", function () {
     var recipeInput = $('#search_input').val().trim();
 
     if (recipeInput !== "") {
-        console.log('recipe button working');
         edamamUrl(recipeInput);
     }
 })
 
 $('.drink__select').change(function (e) {
-    console.log('e', e);
     clearDrinks();
     $drink = $(".drink__select option:selected").val();
-    console.log('$drink', $drink);
-    // console.log('$drink', typeOf($drink));
     cocktailDBUrl($drink);
 });
 
