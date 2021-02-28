@@ -149,11 +149,18 @@ function fetchDrinkIngredients(drinkId, i) {
 $("#recipeBtn").on("click", function () {
     clearCards();
     var recipeInput = $('#search_input').val().trim();
+    console.log('recipeInput', recipeInput)
 
     if (recipeInput !== "") {
         edamamUrl(recipeInput);
     }
 })
+
+$('.drink__select').change(function (e) {
+    clearDrinks();
+    $drink = $(".drink__select option:selected").val();
+    cocktailDBUrl($drink);
+});
 
 function buttonFinder() {
     var ingredientBtns = document.querySelectorAll(".button");
@@ -167,11 +174,6 @@ function buttonFinder() {
 }
 buttonFinder();
 
-$('.drink__select').change(function (e) {
-    clearDrinks();
-    $drink = $(".drink__select option:selected").val();
-    cocktailDBUrl($drink);
-});
 
 
 
