@@ -15,17 +15,16 @@
 </head>
 
 <body>
-    <section class="hero is-small is-primary ">
-        <div class="hero-body">
-            <h1 class="title">
-                humgry
-            </h1>
+    <section class="hero is-small">
+        <div class="logo-box is-small">
+            <img src="images/humgry-logo6.png" alt="humgry logo" class="logo" />
         </div>
-        <p class="subtitle">
-            Delicious Recipes + Tasty Cocktails
-        </p>
-
-        <div>
+        <div class="hero-body is-small">
+            <h1 class="title-logo is-size-1 has-text-weight-semi-bold">humgry</h1>
+            <p class="subtitle">
+                Delicious Recipes + Tasty Cocktails
+            </p>
+        </div>
     </section>
 
     <div class="block">
@@ -37,23 +36,25 @@
 
 
             <div class="button_searches">
-                <button class="button is-primary is-rounded :hovered is-light">Chicken</button>
-                <button class="button is-primary is-rounded :hovered is-light">Cheese</button>
-                <button class="button is-primary is-rounded :hovered is-light">Eggs</button>
-                <button class="button is-primary is-rounded :hovered is-light">Turkey</button>
-                <button class="button is-primary is-rounded :hovered is-light">Tofu</button>
+                <button class="button is-primary is-rounded :hovered">Chicken</button>
+                <button class="button is-primary is-rounded :hovered">Cheese</button>
+                <button class="button is-primary is-rounded :hovered">Eggs</button>
+                <button class="button is-primary is-rounded :hovered">Turkey</button>
+                <button class="button is-primary is-rounded :hovered">Tofu</button>
             </div>
         </div>
         <div
             class="box is-flex is-justify-content-center is-flex-wrap-wrap is-align-items-center is-flex-direction-column">
-            <a href="#drinks"> Go to Drink Options</a>
-            <div class="select my-3">
+            <a class="drink_options" href="#drinks"> Go to Drink Options</a>
+            <div class="select is-primary is-rounded">
                 <select class="drink__select">
-                    <option value="#">Select and option</option>
+                    <option value="#">Select Spitit</option>
                     <option value="gin" class="drink__choices">Gin</option>
                     <option value="bourbon" class="drink__choices">Bourbon</option>
-                    <option value="wine" class="drink__choices">Wine</option>
+                    <option value="rum" class="drink__choices">Rum</option>
                     <option value="vodka" class="drink__choices">Vodka</option>
+                    <option value="tequila" class="drink__choices">Tequila</option>
+                    <option value="whiskey" class="drink__choices">Whiskey</option>
                     <option value="tequila" class="drink__choices">Tequila</option>
                 </select>
             </div>
@@ -64,7 +65,8 @@
 
     <!-- Recipe Cards -->
 
-    <h2 class="is-size-3 is-flex is-justify-content-center has-text-weight-semibold">Recipe Options</h2>
+    <h2 class="description-recipe is-size-3 is-flex is-justify-content-center has-text-weight-semibold">Recipe Options
+    </h2>
     <section class="section__recipe">
         <div class="container">
             <div class="card-wrapper-block is-flex is-justify-content-center is-flex-wrap-wrap">
@@ -74,7 +76,8 @@
 
     <!-----------------Drink Suggestions Top Row----------------------------->
 
-    <h2 class="is-size-3 is-flex is-justify-content-center has-text-weight-semibold" id="drinks">Drink Options</h2>
+    <h2 class="description-drinks is-size-3 is-flex is-justify-content-center has-text-weight-semibold" id="drinks">
+        Drink Options</h2>
     <section class="section__drinks">
         <div class="container">
             <div class="card__wrapper-block is-flex is-justify-content-center is-flex-wrap-wrap">
