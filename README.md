@@ -26,7 +26,7 @@ Added the three API's below in order to get the data on either click of buttons,
 * Cocktail DB API for cocktail suggestions
 * Calling cocktail API a second time in order to get cocktail ingredients (first API only provided ID)
 
-Link to deployed recipe and cocktail suggester: [Deployed site](https://jd-jaramillo.github.io/Recipe-and-Restaurant-Suggester/#top)
+Link to deployed recipe and cocktail suggester: [Deployed site](https://jd-jaramillo.github.io/Recipe-and-Cocktail-Suggester/)
 
 ![image of recipe suggestions](images/website-with-recipe-suggestions.png)
 ![image of cocktail suggestions](images/website-with-cocktail-suggestions.png)
@@ -35,7 +35,7 @@ Link to deployed recipe and cocktail suggester: [Deployed site](https://jd-jaram
 
 There is no need to install anything, to use the recipe and cocktail suggester simply follow the link below. 
 
-See deployed site here: [Deployed Site](https://jd-jaramillo.github.io/Recipe-and-Restaurant-Suggester/#top);
+See deployed site here: [Deployed Site](https://jd-jaramillo.github.io/Recipe-and-Cocktail-Suggester/);
 
 
 See repository here: [GitHub Repo](https://github.com/JD-Jaramillo/Recipe-and-Cocktail-Suggester);
