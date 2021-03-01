@@ -1,5 +1,6 @@
 body {
 background-color:#DCE1E3;
+min-height: 100vh;
 }
 .title-logo {
   display:flex;
@@ -50,7 +51,7 @@ h2 {
   color: black;
 }
 .card {
-  border-radius:50px 50px 50px 50px; 
+  border-radius:25px 25px 25px 25px; 
   box-shadow: 0 0 20px 5px rgba(36, 36, 36, 0.5); 
   background-color: rgb(240, 207, 202);
 }

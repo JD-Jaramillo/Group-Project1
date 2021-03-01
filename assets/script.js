@@ -1,10 +1,31 @@
+// Global variables selecting recipe and drink value input by the user 
 var recipeCardWrapperBlock = document.querySelector('.card-wrapper-block');
 var drinksCardWrapperBlock = document.querySelector('.card__wrapper-block');
+var searchHistoryWrapper = document.querySelector('.search_history');
 
+var searchHistoryArray = JSON.parse(localStorage.getItem('IngSearched')) || [];
+function createSearchHistoryButtons() {
+    console.log(searchHistoryArray);
+    searchHistoryWrapper.innerHTML = '';
+    // <button class="button is-primary is-rounded :hovered">Chicken</button>
+    searchHistoryArray.forEach((search) => {
 
+        var searchEl = document.createElement("button");
+        searchEl.classList.add('button');
+        searchEl.classList.add('is-primary');
+        searchEl.classList.add('is-rounded');
+        searchEl.classList.add(':hover');
+        searchEl.innerHTML = search;
+        searchHistoryWrapper.appendChild(searchEl);
+    })
+}
+createSearchHistoryButtons();
+// Function calling the Edamam 
 function edamamUrl(recipeInput) {
     console.log(" recipe function working");
     var edamamUrl = 'https://edamamproxy.herokuapp.com/to=6&q=' + recipeInput;
+    var recipeTitle = document.querySelector('.description-recipe');
+    recipeTitle.classList.remove('is-hidden');
 
     fetch(edamamUrl)
         .then(function (response) {
@@ -13,6 +34,10 @@ function edamamUrl(recipeInput) {
         .then(function (data) {
 
             var apiArray = data.hits;
+            if (!apiArray.length) {
+                recipeCardWrapperBlock.innerHTML = '<h2>No Results Found</h2>';
+                return;
+            }
 
             apiArray.forEach((data) => {
                 var recipeName = data.recipe.label;
@@ -58,6 +83,10 @@ function clearDrinks() {
 function cocktailDBUrl(drinkChoice) {
     console.log("cocktail function working");
     var cocktailDBUrl = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + drinkChoice;
+    var drinkSearchTitle = document.querySelector('.drink_options');
+    drinkSearchTitle.classList.remove('is-hidden');
+    var drinkTitle = document.querySelector('.description-drinks');
+    drinkTitle.classList.remove('is-hidden');
 
     fetch(cocktailDBUrl)
         .then(function (response) {
@@ -149,10 +178,14 @@ function fetchDrinkIngredients(drinkId, i) {
 $("#recipeBtn").on("click", function () {
     clearCards();
     var recipeInput = $('#search_input').val().trim();
+
     console.log('recipeInput', recipeInput)
 
     if (recipeInput !== "") {
+        searchHistoryArray.push(recipeInput);
+        localStorage.setItem('IngSearched', JSON.stringify(searchHistoryArray));
         edamamUrl(recipeInput);
+        createSearchHistoryButtons()
     }
 })
 
@@ -162,17 +195,13 @@ $('.drink__select').change(function (e) {
     cocktailDBUrl($drink);
 });
 
-function buttonFinder() {
-    var ingredientBtns = document.querySelectorAll(".button");
 
-    $(ingredientBtns).on("click", function (event) {
-        clearCards();
-        var foodFind = event.target.innerText;
-        edamamUrl(foodFind);
-    });
 
-}
-buttonFinder();
+$(".button_searches").on("click", ".button", function () {
+    clearCards();
+    edamamUrl($(this).text());
+});
+
 
 
 
