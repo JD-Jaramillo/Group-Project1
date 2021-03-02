@@ -27,6 +27,8 @@
         </div>
     </section>
 
+    <!------------------------------------------Search Bar and Search Buttons---------------------------------------------------->
+
     <div class="block">
         <div class="box searchBtn__wrapper has-text-centered mb-0">
             <h3>Search any Ingredient or Cuisine</h3>
@@ -41,11 +43,13 @@
                 <button class="button is-primary is-rounded :hovered">Eggs</button>
                 <button class="button is-primary is-rounded :hovered">Turkey</button>
                 <button class="button is-primary is-rounded :hovered">Tofu</button>
+                <span class="search_history"></span>
             </div>
         </div>
+        <!------------------------------------------Dropdown Cocktail Options---------------------------------------------------->
         <div
             class="box is-flex is-justify-content-center is-flex-wrap-wrap is-align-items-center is-flex-direction-column">
-            <a class="drink_options" href="#drinks"> Go to Drink Options</a>
+            <a class="drink_options is-hidden" href="#drinks"> Go to Drink Options</a>
             <div class="select is-primary is-rounded">
                 <select class="drink__select">
                     <option value="#">Select Spirit</option>
@@ -58,14 +62,13 @@
                     <option value="tequila" class="drink__choices">Tequila</option>
                 </select>
             </div>
-            <!------------------------------------------Dropdown---------------------------------------------------->
         </div>
     </div>
 
-
     <!-- Recipe Cards -->
 
-    <h2 class="description-recipe is-size-3 is-flex is-justify-content-center has-text-weight-semibold">Recipe Options
+    <h2 class="description-recipe is-hidden is-size-3 is-flex is-justify-content-center has-text-weight-semibold">Recipe
+        Options
     </h2>
     <section class="section__recipe">
         <div class="container">
@@ -74,9 +77,10 @@
         </div>
     </section>
 
-    <!-----------------Drink Suggestions Top Row----------------------------->
+    <!-----------------Cocktail Cards----------------------------->
 
-    <h2 class="description-drinks is-size-3 is-flex is-justify-content-center has-text-weight-semibold" id="drinks">
+    <h2 class="description-drinks is-hidden is-size-3 is-flex is-justify-content-center has-text-weight-semibold"
+        id="drinks">
         Drink Options</h2>
     <section class="section__drinks">
         <div class="container">
@@ -85,10 +89,11 @@
         </div>
     </section>
 
-    <!---------------------------Drink Sugeestion Bottom Row----------------------------------->
     <!------------------------back to top nav button-------------------------------------------->
+
     <div class="buttons has-text-centered">
-        <button class="button is-primary is-rounded"><a class="back__a" href="#top">Back to Top of Page</a></button>
+        <button class="button is-primary is-rounded"><a class="back__a" href="#top">Back to Top of
+                Page</a></button>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="assets/script.js"></script>
